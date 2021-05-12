@@ -1,0 +1,29 @@
+{
+  "name": "qr-vault",
+  "version": "1.0.0",
+  "description": "Final Project; An Application that generates and stores a users generated QR codes",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsalvino/qr-vault.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsalvino/qr-vault/issues"
+  },
+  "homepage": "https://github.com/dsalvino/qr-vault#readme"
+}
