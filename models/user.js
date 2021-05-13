@@ -27,8 +27,7 @@ const userSchema = new Schema({
     password: {
         type: String,
         len: [8],
-        required: 'Password is required',
-        unique: true
+        required: 'Password is required'
     },
     codes: [
         {
