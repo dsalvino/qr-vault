@@ -29,5 +29,14 @@ const userSchema = new Schema({
         len: [8],
         required: 'Password is required',
         unique: true
-    }
+    },
+    codes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Code'
+        }
+    ]
 });
+
+const User = mongoose.model('User', userSchema);
+module.exports = User;

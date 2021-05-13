@@ -6,3 +6,6 @@ const CodeSchema = new Schema({
         type: Object
     }
 })
+
+const Code = mongoose.model('Code', CodeSchema);
+module.exports = Code;
