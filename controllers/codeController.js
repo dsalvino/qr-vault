@@ -10,7 +10,7 @@ module.exports = {
         try {
             const qrResults = await axios.post(API, req.body.qrObj);
             // console.log(qrResults)
-            return res.json(qrResults.data);
+            return res.send(qrResults.data);
         } catch (err) {
             console.error(err);
         }
