@@ -6,8 +6,14 @@ module.exports = {
     test: function (req, res) {
         res.send('route working');
     },
-    generate: function (req, res) {
-        
+    generate: async function (req, res) {
+        try {
+            const qrResults = await axios.post(API, req.body.qrObj);
+            // console.log(qrResults)
+            return res.json(qrResults.data);
+        } catch (err) {
+            console.error(err);
+        }
     }
 }
 
