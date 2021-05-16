@@ -8,6 +8,9 @@ const CodeSchema = new Schema({
         type: String,
         // required: true
     },
+    qrCode: {
+        type: String,
+    },
     qrObj: Schema.Types.Mixed
 }, { typePojoToMixed: false });
 
