@@ -8,11 +8,13 @@ module.exports = {
     },
     generate: async function (req, res) {
         try {
-            const qrResults = await axios.post(API, req.body.qrObj);
+            const qrResults = await axios.post(API, req.body.qrObj, qrdb.create(req.body));
+            // const createDb = await qrdb.create(req.body);
+
             // console.log(qrResults)
-            return res.send(qrResults.data);
+            res.status(200).send(qrResults.data);
         } catch (err) {
-            console.error(err);
+            res.status(400).json(err);
         }
     }
 }
