@@ -9,16 +9,23 @@ module.exports = {
     generate: async function (req, res) {
         try {
             const qrResults = await axios.post(API, req.body.qrObj, qrdb.create(req.body));
-            // const createDb = await qrdb.create(req.body);
-
-            // console.log(qrResults)
+            await qrdb.create({
+                label: req.body.label,
+                qrCode: qrResults.data,
+                qrObj: req.body.qrObj
+            });
+            console.log(createDb)
             res.status(200).send(qrResults.data);
         } catch (err) {
             res.status(400).json(err);
         }
+    },
+    findOne: async function (req, res) {
+        try {
+            const response = await qrdb.findById(req.params.id);
+            res.status(200).json(response);
+        } catch (err) {
+            console.error(err);
+        }
     }
 }
-
-// qrdb.create(req.body)
-//             .then(qrModel => res.json(qrModel))
-//             .catch(err => res.status(422).json(err));
