@@ -3,19 +3,23 @@ const axios = require('axios');
 const API = "https://api.qr-code-generator.com/v1/create?access-token=" + process.env.API_KEY
 
 module.exports = {
-    test: function (req, res) {
-        res.send('route working');
+    findAll: async function (req, res) {
+        try {
+            const response = await qrdb.find(req.query).sort({ date: -1 });
+            res.status(200).json(response);
+        } catch (err) {
+            console.error(err);
+        }
     },
     generate: async function (req, res) {
         try {
-            const qrResults = await axios.post(API, req.body.qrObj, qrdb.create(req.body));
+            const response = await axios.post(API, req.body.qrObj, qrdb.create(req.body));
             await qrdb.create({
                 label: req.body.label,
-                qrCode: qrResults.data,
+                qrCode: response.data,
                 qrObj: req.body.qrObj
             });
-
-            res.status(200).send(qrResults.data);
+            res.status(200).send(response.data);
         } catch (err) {
             res.status(400).json(err);
         }
@@ -28,7 +32,7 @@ module.exports = {
             console.error(err);
         }
     },
-    remove: async function (req,res) {
+    remove: async function (req, res) {
         try {
             const response = await qrdb.findOneAndDelete(req.params.id);
             res.status(200).json(response);

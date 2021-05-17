@@ -3,7 +3,7 @@ const codeController = require('../../controllers/codeController');
 
 router
     .route('/')
-    .get(codeController.test)
+    .get(codeController.findAll)
     .post(codeController.generate);
 
     router
