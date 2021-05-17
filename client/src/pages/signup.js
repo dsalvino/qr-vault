@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
-
-
 const Signup = () => {
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
@@ -17,13 +14,12 @@ const Signup = () => {
             password: password
         }
         try {
-            const submit = await axios.post('/api/user', userInput);
+            const submit = await axios.post('/api/signup', userInput);
             console.log(submit);
         } catch (err) {
             console.error(err);
         }
     }
-
 
     return (
         <>

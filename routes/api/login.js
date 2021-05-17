@@ -3,6 +3,7 @@ const userController = require('../../controllers/userController');
 
 router
     .route('/')
-    .get(userController.dashboard);
+    .post(userController.login)
+    .delete(userController.logout);
 
-    module.exports = router;
+module.exports = router;

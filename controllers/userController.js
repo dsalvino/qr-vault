@@ -20,23 +20,26 @@ module.exports = {
     },
     login: async function (req, res) {
         try {
-            const userData = await userdb.findOne({ where: { email: req.body.email } });
+            const userData = await userdb.findOne({ username: req.body.username }).exec();
             if (!userData) {
-                res.status(400).json({ message: "Incorrect email or password, please try again" });
+                res.status(400).json({ message: "Incorrect username or password, please try again" });
                 return;
             }
-            const validPassword = await userData.checkPassword(req.body.password);
-            if (!validPassword) {
-                res.status(400).json({ message: "Incorrect email or password, please try again" });
-                return;
-            }
-            req.session.save(() => {
-                req.session.user_id = userData.id;
-                req.session.logged_in = true;
-                res.json({ user: userData, message: "You are now logged in!" });
+            userData.comparePasswords(req.body.password, (err, isMatch) => {
+                if (err) {
+                    res.status(400).json({ message: "Incorrect username or password, please try again" });
+                    return;
+                }
+                if (isMatch) {
+                    req.session.save(() => {
+                        req.session.user_id = userData.id;
+                        req.session.logged_in = true;
+                        res.json({ user: userData, message: "You are now logged in!" });
+                    });
+                }
             });
         } catch (err) {
-            res.status(400).json(err);
+            res.status(500).json(err);
         }
     },
     logout: function (req, res) {
