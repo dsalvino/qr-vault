@@ -13,7 +13,7 @@ const Signup = () => {
                         <div className="row mb-3">
                             <label for="inputEmail3" className="col-sm-2 col-form-label">Username:</label>
                             <div className="col-sm-10">
-                                <input type="email" className="form-control" id="inputEmail3" required />
+                                <input type="username" className="form-control" id="inputEmail3" required />
                             </div>
                         </div>
                         <div className="row mb-3">
