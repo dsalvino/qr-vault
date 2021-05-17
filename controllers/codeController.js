@@ -14,7 +14,7 @@ module.exports = {
                 qrCode: qrResults.data,
                 qrObj: req.body.qrObj
             });
-            console.log(createDb)
+
             res.status(200).send(qrResults.data);
         } catch (err) {
             res.status(400).json(err);
@@ -23,6 +23,14 @@ module.exports = {
     findOne: async function (req, res) {
         try {
             const response = await qrdb.findById(req.params.id);
+            res.status(200).json(response);
+        } catch (err) {
+            console.error(err);
+        }
+    },
+    remove: async function (req,res) {
+        try {
+            const response = await qrdb.findOneAndDelete(req.params.id);
             res.status(200).json(response);
         } catch (err) {
             console.error(err);

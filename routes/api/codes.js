@@ -8,6 +8,7 @@ router
 
     router
     .route('/:id')
-    .get(codeController.findOne);
+    .get(codeController.findOne)
+    .delete(codeController.remove);
 
     module.exports = router;
