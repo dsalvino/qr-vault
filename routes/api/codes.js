@@ -1,14 +1,15 @@
 const router = require('express').Router();
 const codeController = require('../../controllers/codeController');
+const withAuth = require('../../utils/auth');
 
 router
     .route('/')
-    .get(codeController.findAll)
+    .get(codeController.findAll, withAuth)
     .post(codeController.generate);
 
     router
     .route('/:id')
-    .get(codeController.findOne)
-    .delete(codeController.remove);
+    .get(codeController.findOne, withAuth)
+    .delete(codeController.remove, withAuth);
 
     module.exports = router;

@@ -1,9 +1,6 @@
 const userdb = require('../models/user');
 
 module.exports = {
-    dashboard: function (req, res) {
-        res.send('dashboard');
-    },
     signup: async function (req, res) {
         try {
             const userData = await userdb.create(req.body);
@@ -49,6 +46,22 @@ module.exports = {
             });
         } else {
             res.status(404).end();
+        }
+    },
+    authentication: async function (req, res) {
+        if (req.session.logged_in) {
+            try {
+                const userData = await userdb.findOne({ _id: req.session.user_id });
+                if (userData) {
+                    res.json(userData);
+                } else {
+                    res.json(false);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        } else {
+            res.json(false);
         }
     }
 }

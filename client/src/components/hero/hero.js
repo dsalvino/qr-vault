@@ -1,7 +1,15 @@
+import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 const Hero = () => {
+    let history = useHistory();
+    async function logout() {
+        const response = await axios.delete('/api/login')
+        history.push('/signup');
+    }
+
     return (
         <>
             <div className="container-fluid mb-5 heroContainer">
@@ -11,11 +19,11 @@ const Hero = () => {
                             <Link to='dashboard'>Dashboard</Link>
                         </a>
                         <a className=" text-sm-center nav-link" href="#">
-                        <Link to='login'>Login</Link>
+                            <Link to='login'>Login</Link>
                         </a>
-                        <a className=" text-sm-center nav-link" href="#">
-                        <Link to='signup'>TODO: CHANGE </Link>
-                        </a>
+                        <button className=" text-sm-center nav-link" onClick={logout}>
+                            <Link to='signup'>Logout </Link>
+                        </button>
                     </nav>
                 </div>
             </div>
