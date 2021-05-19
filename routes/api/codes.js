@@ -5,11 +5,10 @@ const withAuth = require('../../utils/auth');
 router
     .route('/')
     .get(codeController.findAll, withAuth)
-    .post(codeController.call);
+    .post(codeController.generate, withAuth);
 
     router
     .route('/:id')
-    .post(codeController.generate, withAuth)
     .get(codeController.findOne, withAuth)
     .delete(codeController.remove, withAuth);
 
