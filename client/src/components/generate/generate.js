@@ -19,7 +19,7 @@ const Generate = () => {
         }
         console.log(userInput)
         try {
-            const response = await axios.post('/api/qrcode', userInput);
+            const response = await axios.post('/api/generate', userInput);
             console.log(response.data);
             setQrImage(response.data);
         } catch (err) {
@@ -30,27 +30,27 @@ const Generate = () => {
     return (
         <>
             <div className="col-md-7" id="aside">
-                <div class="h-75 d-flex justify-content-center align-items-center">
-                    <form class="col-md-5 form-background needs-validation" id="customer-form" onSubmit={handleSubmit}>
-                        <div class="mx-auto my-auto">
+                <div className="h-75 d-flex justify-content-center align-items-center">
+                    <form className="col-md-5 form-background needs-validation" id="customer-form" onSubmit={handleSubmit}>
+                        <div className="mx-auto my-auto">
                             <h3>Generate QR Code here</h3>
                         </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">qr code text</label>
-                            <textarea class="form-control" aria-label="With textarea" onChange={e => setQrText(e.target.value)}></textarea>
+                        <div className="mb-3">
+                            <label className="form-label">qr code text</label>
+                            <textarea className="form-control" aria-label="With textarea" onChange={e => setQrText(e.target.value)}></textarea>
                         </div>
-                        <select class="form-select" aria-label="Default select example" value={frame} onChange={handleChange}>
+                        <select className="form-select" aria-label="Default select example" value={frame} onChange={handleChange}>
                             <option selected disabled>frame name</option>
                             <option value="no-frame">no frame</option>
                             <option value="bottom-frame">bottom frame</option>
                             <option value="bottom-tooltip">bottom tooltip</option>
                             <option value="top-header">top header</option>
                         </select>
-                        <div class="mb-3">
-                            <div class="d-grid gap-1 mx-auto col-4 mt-3">
-                                <button class="btn btn-primary" type="submit">Generate</button>
+                        <div className="mb-3">
+                            <div className="d-grid gap-1 mx-auto col-4 mt-3">
+                                <button className="btn btn-primary" type="submit">Generate</button>
                             </div>
-                            <img src={qrImage}></img>
+                            <img src={qrImage} alt="img"></img>
                         </div>
                     </form>
                 </div>

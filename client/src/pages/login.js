@@ -32,13 +32,13 @@ const Login = () => {
                         <h3>Welcome</h3>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Username:</label>
+                        <label class="col-sm-2 col-form-label">Username:</label>
                         <div class="col-sm-10">
                             <input type="username" class="form-control" id="inputUsername3" onChange={e => setUsername(e.target.value)} required />
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password:</label>
+                        <label class="col-sm-2 col-form-label">Password:</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="inputPassword3" onChange={e => setPassword(e.target.value)} required />
                             <Link to='signup'>Don't have an account? Sign up here!</Link>

@@ -15,12 +15,12 @@ const Hero = () => {
             <div className="container-fluid mb-5 heroContainer">
                 <div id="hero" className="py-3 text-center block block-1 bg-light">
                     <nav className="nav flex-column flex-sm-row justify-content-around">
-                        <a className=" text-sm-center nav-link active" aria-current="page" href="#">
+                        <button className=" text-sm-center nav-link active" aria-current="page">
                             <Link to='dashboard'>Dashboard</Link>
-                        </a>
-                        <a className=" text-sm-center nav-link" href="#">
+                        </button>
+                        <button className=" text-sm-center nav-link">
                             <Link to='login'>Login</Link>
-                        </a>
+                        </button>
                         <button className=" text-sm-center nav-link" onClick={logout}>
                             <Link to='signup'>Logout </Link>
                         </button>

@@ -31,19 +31,19 @@ const Signup = () => {
                             <h3>Welcome, please make an account below</h3>
                         </div>
                         <div className="row mb-3">
-                            <label for="inputEmail3" className="col-sm-2 col-form-label">Username:</label>
+                            <label className="col-sm-2 col-form-label">Username:</label>
                             <div className="col-sm-10">
                                 <input type="username" className="form-control" id="inputEmail3" onChange={e => setUsername(e.target.value)} required />
                             </div>
                         </div>
                         <div className="row mb-3">
-                            <label for="inputEmail3" className="col-sm-2 col-form-label">email:</label>
+                            <label className="col-sm-2 col-form-label">email:</label>
                             <div className="col-sm-10">
                                 <input type="username" className="form-control" id="inputEmail3" onChange={e => setEmail(e.target.value)} required />
                             </div>
                         </div>
                         <div className="row mb-3">
-                            <label for="inputPassword3" className="col-sm-2 col-form-label">Password:</label>
+                            <label className="col-sm-2 col-form-label">Password:</label>
                             <div className="col-sm-10">
                                 <input type="password" className="form-control" id="inputPassword3" onChange={e => setPassword(e.target.value)} required />
                             </div>
