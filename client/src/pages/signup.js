@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Signup = () => {
+    let history = useHistory();
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -15,6 +17,7 @@ const Signup = () => {
         }
         try {
             const submit = await axios.post('/api/signup', userInput);
+            history.push('/dashboard');
             console.log(submit);
         } catch (err) {
             console.error(err);
