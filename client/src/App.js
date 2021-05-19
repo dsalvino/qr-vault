@@ -5,6 +5,7 @@ import Header from './components/header/header';
 import Hero from './components/hero/hero';
 import Footer from './components/footer/footer';
 
+import Home from './pages/landing';
 import Dashboard from './pages/dashboard';
 import Signup from './pages/signup';
 import Login from './pages/login';
@@ -18,7 +19,7 @@ function App() {
         <Header />
         <Hero />
         <Switch>
-          <Route exact path='/' component={Signup} />
+          <Route exact path='/' component={Home} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/dashboard' component={Dashboard} />

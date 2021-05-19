@@ -39,5 +39,14 @@ module.exports = {
         } catch (err) {
             console.error(err);
         }
+    },
+    call: async function (req, res) {
+        try {
+            const response = await axios.post(API, req.body);
+            res.status(200).send(response.data);
+            console.log(response.data);
+        } catch (err) {
+            console.error(err);
+        }
     }
 }

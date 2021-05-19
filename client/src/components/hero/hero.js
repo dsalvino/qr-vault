@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 const Hero = () => {
     let history = useHistory();
     async function logout() {
-        const response = await axios.delete('/api/login')
+        await axios.delete('/api/login')
         history.push('/signup');
     }
 
