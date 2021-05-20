@@ -11,7 +11,7 @@ const Jumbotron = () => {
 
     return (
         <>
-            <nav className="navbar bg-light">
+            <nav className="navbar bg-light header-vh">
                 <div className="container-fluid justify-content-center">
                     <h1 className="text-center" id="name">The vault</h1>
                 </div>

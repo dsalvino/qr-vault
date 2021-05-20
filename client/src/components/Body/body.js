@@ -37,7 +37,7 @@ const Body = () => {
     }
 
     return (
-        <>
+        <div className="container">
             <div className='container-fluid'>
                 <div className='row'>
                     <Col size="md-5" id="aside">
@@ -77,7 +77,7 @@ const Body = () => {
                     </Col>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
