@@ -11,12 +11,16 @@ const Body = () => {
     const [frame, setFrame] = useState();
     const [qrImage, setQrImage] = useState();
 
+    console.log(qrText)
+
     const handleChange = (e) => {
         setFrame(e.target.value);
-        console.log(frame)
+        console.log("working", frame)
+        
     }
 
     const handleSubmit = async e => {
+        console.log('working')
         e.preventDefault();
         const userInput = {
             qr_code_text: qrText,
