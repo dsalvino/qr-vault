@@ -34,7 +34,7 @@ module.exports = {
     },
     remove: async function (req, res) {
         try {
-            const response = await qrdb.findOneAndDelete(req.params.id);
+            const response = await qrdb.findOneAndDelete({ _id: req.params.id });
             res.status(200).json(response);
         } catch (err) {
             console.error(err);
@@ -48,5 +48,5 @@ module.exports = {
         } catch (err) {
             console.error(err);
         }
-    }
+    },
 }

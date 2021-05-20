@@ -1,4 +1,6 @@
 const userdb = require('../models/user');
+const codedb = require('../models/codes');
+const { db } = require('../models/user');
 
 module.exports = {
     signup: async function (req, res) {
@@ -6,7 +8,7 @@ module.exports = {
             const userData = await userdb.create(req.body);
 
             req.session.save(() => {
-                req.session.user_id = userData._id;
+                req.session.user_id = userData.id;
                 req.session.logged_in = true;
 
                 res.status(200).json(userData);
@@ -63,5 +65,34 @@ module.exports = {
         } else {
             res.json(false);
         }
+    },
+    saveCode: function (req, res) {
+        codedb.create({ ...req.body, creator: req.session.user_id })
+            .then(function (dbCode) {
+                userdb.findOneAndUpdate({ _id: req.session.user_id }, { $push: { codes: dbCode._id } }, { new: true });
+                return res.json(dbCode)
+            })
+            .catch(function (err) {
+                res.json(err);
+            })
+    },
+    findOne: function (req, res) {
+        userdb.findOne({ _id: req.session.user_id })
+            .populate('codes')
+            .then(function (dbUser) {
+                res.json(dbUser);
+            })
+            .catch(function (err) {
+                res.json(err);
+            });
+    },
+    findAll: async function (req, res) {
+        try {
+            const foundUser = await userdb.find({ _id: req.session.user_id }).populate("codes");
+            res.json(foundUser);
+        } catch (err) {
+            console.error(err);
+        }
     }
 }
+

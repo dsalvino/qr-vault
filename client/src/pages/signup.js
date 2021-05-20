@@ -3,8 +3,10 @@ import axios from 'axios';
 
 import Container from '../components/Container/container';
 import { Form, Input } from '../components/form/form';
+import { useHistory } from 'react-router-dom'
 
 const Signup = () => {
+    let history = useHistory();
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -18,7 +20,7 @@ const Signup = () => {
         }
         try {
             const submit = await axios.post('/api/signup', userInput);
-            console.log(submit);
+            history.push('/dashboard');
         } catch (err) {
             console.error(err);
         }

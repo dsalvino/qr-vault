@@ -7,9 +7,9 @@ router
     .get(codeController.findAll, withAuth)
     .post(codeController.generate, withAuth);
 
-    router
+router
     .route('/:id')
     .get(codeController.findOne, withAuth)
     .delete(codeController.remove, withAuth);
 
-    module.exports = router;
+module.exports = router;

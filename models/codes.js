@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// const CodeSchema = new Schema({ any: Object });
-
 const CodeSchema = new Schema({
     label: {
-        type: String,
-        // required: true
+        type: String
     },
     qrCode: {
         type: String,
+    },
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
     },
     qrObj: Schema.Types.Mixed
 }, { typePojoToMixed: false });

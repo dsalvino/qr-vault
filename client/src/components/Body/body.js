@@ -70,6 +70,7 @@ const Body = () => {
                                 <div className="mb-3">
                                     <div className="d-grid gap-1 mx-auto col-4 mt-3">
                                         <button className="btn btn-primary" type="submit">Generate</button>
+                                        <button className="btn btn-primary" type="submit">Generate</button>
                                     </div>
                                 </div>
                             </Form>
