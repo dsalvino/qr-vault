@@ -20,10 +20,18 @@ export const Select = ({ props, children }) => {
     )
 }
 
-export const Option = ({ children, props, selected, disabled }) => {
+export const Option = ({ children, ...props }) => {
     return (
         <>
-        <option value={`${props.value} ${selected ? "selected" : ""} ${disabled ? "disabled" : ""}`}>{children}</option>
+        <option {...props}>{children}</option>
+        </>
+    )
+}
+
+export const Input = (props) => {
+    return (
+        <>
+        <input type={`${props.type}`} {...props}></input>
         </>
     )
 }

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Container from '../components/Container/container';
+import { Form, Input } from '../components/form/form';
 
 const Login = () => {
     let history = useHistory();
@@ -26,29 +28,29 @@ const Login = () => {
 
     return (
         <>
-            <div class="h-75 d-flex justify-content-center align-items-center">
-                <form class="col-md-5 form-background needs-validation" id="customer-form" onSubmit={handleSubmit}>
+            <Container>
+                <Form onSubmit={handleSubmit}>
                     <div class="mx-auto my-auto">
                         <h3>Welcome</h3>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Username:</label>
                         <div class="col-sm-10">
-                            <input type="username" class="form-control" id="inputUsername3" onChange={e => setUsername(e.target.value)} required />
+                            <Input type="username" class="form-control" id="inputUsername3" onChange={e => setUsername(e.target.value)} />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Password:</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" onChange={e => setPassword(e.target.value)} required />
+                            <Input type="password" class="form-control" id="inputPassword3" onChange={e => setPassword(e.target.value)} />
                             <Link to='signup'>Don't have an account? Sign up here!</Link>
                         </div>
                         <div class="d-grid gap-1 mx-auto col-4 mt-3">
                             <button class="btn btn-primary" type="submit">Login</button>
                         </div>
                     </div>
-                </form>
-            </div>
+                </Form>
+            </Container>
         </>
     )
 }

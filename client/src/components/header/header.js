@@ -6,7 +6,7 @@ const Jumbotron = () => {
     let history = useHistory();
     async function logout() {
         await axios.delete('/api/login')
-        history.push('/signup');
+        history.push('/');
     }
 
     return (
