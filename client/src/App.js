@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/header/header';
-import Hero from './components/hero/hero';
 import Footer from './components/footer/footer';
 
 import Home from './pages/landing';
@@ -17,7 +16,6 @@ function App() {
     <Router>
       <>
         <Header />
-        <Hero />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/signup' component={Signup} />
