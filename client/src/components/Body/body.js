@@ -11,7 +11,7 @@ const Body = () => {
 
     useEffect(() => {
         console.log(qrImage)
-    },[qrImage])
+    }, [qrImage])
 
     const handleChange = (e) => {
         setFrame(e.target.value);
@@ -42,7 +42,7 @@ const Body = () => {
                     <div className="col-md-5" id="aside">
                         <div className="h-75 d-flex justify-content-center align-items-center">
                             {/* todo  */}
-                            { qrImage && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(qrImage)}`} alt="img"></img>}
+                            {qrImage && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(qrImage)}`} alt="img"></img>}
                         </div>
                     </div>
                     <div className="col-md-7" id="aside">
@@ -65,7 +65,8 @@ const Body = () => {
                                 <div className="mb-3">
                                     <div className="d-grid gap-1 mx-auto col-4 mt-3">
                                         <button className="btn btn-primary" type="submit">Generate</button>
-                                    </div>                                </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
