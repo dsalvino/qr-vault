@@ -3,7 +3,7 @@ import React from 'react';
 export const Form = ({  children, ...props }) => {
     return (
         <>
-            <form className="col-md-5 form-background needs-validation" {...props}>
+            <form className="col-md-11 form-background needs-validation d-flex flex-column" {...props}>
                 {children}
             </form>
         </>

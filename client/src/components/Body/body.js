@@ -37,9 +37,9 @@ const Body = () => {
     }
 
     return (
-        <div className="container">
-            <div className='container-fluid'>
-                <div className='row'>
+        <>
+            <div className='container-fluid h-75'>
+                <div className='row d-flex justify-content-center align-items-center h-100'>
                     <Col size="md-5" id="aside">
                         <Container>
                             {/* todo ternary expression */}
@@ -56,7 +56,7 @@ const Body = () => {
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">qr code text</label>
-                                    <textarea className="form-control" aria-label="With textarea"
+                                    <textarea className="form-control form" aria-label="With textarea"
                                         onChange={e => setQrText(e.target.value)}>
                                     </textarea>
                                 </div>
@@ -77,7 +77,7 @@ const Body = () => {
                     </Col>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

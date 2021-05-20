@@ -44,3 +44,14 @@
   height: 60px;
 }
 
+#root {
+  height: 100vh;
+}
+
+.form {
+  width: 100% !important;
+}
+
+
+
+
