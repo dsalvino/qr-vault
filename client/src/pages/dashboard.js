@@ -7,12 +7,13 @@ import Container from '../components/Container/container';
 import Img from '../components/Image/image';
 import { Form, Select, Option } from '../components/form/form';
 import { Col } from '../components/Col/col';
+import ListItem from '../components/list/list';
 
 const Dashboard = () => {
     const [qrText, setQrText] = useState();
     const [frame, setFrame] = useState();
     const [qrImage, setQrImage] = useState();
-    const [vault, setVault] = useState();
+    const [vault, setVault] = useState([]);
     const [label, setLabel] = useState();
 
     let history = useHistory();
@@ -58,11 +59,13 @@ const Dashboard = () => {
         const userCode = {
             qrCode: qrImage,
             // todo
-            label: label
+            label: label,
         }
+        console.log(userCode)
         try {
             const response = await axios.post('/api/user', userCode);
             setVault([...vault, response.data]);
+            console.log(response);
         } catch (err) {
             console.error(err);
         }
@@ -71,7 +74,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className='container-fluid h-75'>
+            <div className='container-fluid'>
                 <div className='row d-flex justify-content-center align-items-center h-100'>
                     <Col size="md-5" id="aside">
                         <Container>
@@ -95,7 +98,7 @@ const Dashboard = () => {
                                     </textarea>
                                 </div>
                                 <div className="mb-3">
-                                    <label className="form-label">qr code text</label>
+                                    <label className="form-label">label</label>
                                     {/* create another text are for label */}
                                     <textarea className="form-control form" aria-label="With textarea"
                                         onChange={e => setLabel(e.target.value)}>
@@ -117,6 +120,21 @@ const Dashboard = () => {
                             </Form>
                         </Container>
                     </Col>
+                    {vault.length ? (
+                        <div className='row row-cols-1 row-cols-md-3 g-4 mb-5'>
+                            {vault.map(vaultItem => {
+                                return (
+                                    <ListItem
+                                    key={vaultItem._id} 
+                                    label={vaultItem.label}
+                                    image={vaultItem.qrCode}>
+                                    </ListItem>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <h3>no codes</h3>
+                    )}
                 </div>
             </div>
         </>
