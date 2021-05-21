@@ -12,13 +12,13 @@ const Jumbotron = () => {
         history.push('/');
     }
 
-    useEffect(() => {
-        try {
-            const authentication = await axios.get('/api/user')
-        }
-    })
+    // useEffect(() => {
+    //     try {
+    //         const authentication = await axios.get('/api/user')
+    //     }
+    // })
 
-    }
+    // }
 
     return (
         <>

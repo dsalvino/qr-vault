@@ -5,7 +5,7 @@ const Footer = () => {
         <>
             <footer className="footer mt-auto py-3 bg-light" id="sticky-footer">
                 <div className="container text-center">
-                    <span>footer</span>
+                    <span>Created by Denis Salvino</span>
                 </div>
             </footer>
         </>
