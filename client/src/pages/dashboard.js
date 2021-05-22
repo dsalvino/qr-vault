@@ -22,7 +22,7 @@ const Dashboard = () => {
             async function auth() {
                 const response = await axios.get('/api/user/all')
                 setVault(response.data.codes);
-                if (!response.data) {
+                if (!response.data.codes) {
                     history.push('/signup');
                 }
             }

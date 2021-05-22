@@ -66,15 +66,14 @@ module.exports = {
             res.json(false);
         }
     },
-    saveCode: function (req, res) {
-        codedb.create({ ...req.body, creator: req.session.user_id })
-            .then(function (dbCode) {
-                userdb.findOneAndUpdate({ _id: req.session.user_id }, { $push: { codes: dbCode._id } }, { new: true });
-                return res.json(dbCode)
-            })
-            .catch(function (err) {
-                res.json(err);
-            })
+    saveCode: async function (req, res) {
+        try {
+            const code = await codedb.create({ ...req.body, creator: req.session.user_id })
+            const user = await userdb.findOneAndUpdate({ _id: req.session.user_id }, { $push: { codes: code._id } }, { new: true });
+            return res.json(code)
+        } catch (err) {
+            console.error(err);
+        }
     },
     findOne: function (req, res) {
         userdb.findOne({ _id: req.session.user_id })
